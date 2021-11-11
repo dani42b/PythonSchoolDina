@@ -1,0 +1,122 @@
+First assignment: 
+def Input():
+    """
+    The function gets input from the user until he input negative number, the postive numbers added to a list.
+    :return: list that contain the positive numbers that the user inputed.
+    """
+    list = []
+    while (True):
+        n = int(input())
+        if n < 0:
+            return list
+        list.append(n)
+    return list
+
+
+def display(list):
+    """
+    :param list: list contains integers
+    The function prints the number that divide by 5 and below 1500
+    stops if the number between 50 and 100
+    :return: none
+    """
+    for i in list:
+        if (i >= 50) and (i <= 100):
+            return
+        elif i % 5 == 0 and i < 1500:
+            print(i)
+
+
+def Input1():
+    """
+    The function gets input from the user until he input a only digit string
+    :return: s that contain digits only
+    """
+    while True:
+        s = input()
+        if s.isdigit():
+            return s
+
+
+def how_many_digits(s):
+    """
+    printing every digit in the string separately
+    :param s: a string
+    :return: the length of the string
+    """
+    for i in s:
+        print(i)
+    return len(s)
+
+
+def count_0_9(s):
+    """
+    The function counts how many times the digit is in the string
+    :param s: a string
+    :return: a dictionary that contain a counter for each digit
+    """
+    dic = {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+    }
+    for i in s:
+        dic[str(i)] += 1
+    return dic
+
+
+def input_string_in_list():
+    """
+    The function gets input until the input is "done", the string added to a list.
+    :return: list that contain the strings that the user inputted
+    """
+    s = input()
+    res_list = []
+    while s != "done":
+        res_list.append(s)
+        s = input()
+    return res_list
+
+
+def concate_2_lists(a, b):
+    """
+    The function connects the context of 2 lists.
+    :param a: a  list
+    :param b: a  list
+    :return: list that contain the connect of the lists  in the parameters
+    """
+    if len(a) > len(b):
+        t = len(a)
+    else:
+        t = len(b)
+        for i in range(t-len(a)):
+            a.append("")
+    for i in range(t):
+        a[i] += b[i]
+    return a
+
+
+def main():
+    # script 1
+    listA = Input()
+    display(listA)
+    # script 2
+    s = Input1()
+    print(how_many_digits(s))
+    each_digit_dic = count_0_9(s)
+    for keys, values in each_digit_dic.items():
+        print(keys + ":" + str(values))
+    # script 3
+    print(input_string_in_list())
+    print(concate_2_lists(["w", "hav", "a", "b"], ["e", "e", "", "ig", "dog"]))
+
+
+if __name__ == '__main__':
+    main()
